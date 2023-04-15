@@ -2,10 +2,13 @@ package com.mouflon.service;
 
 import com.mouflon.dto.request.TeacherRequest;
 import com.mouflon.dto.response.TeacherResponse;
+import com.mouflon.mapper.TeacherMapper;
+import com.mouflon.mapper.UserMapper;
 import com.mouflon.model.Teacher;
 import com.mouflon.model.enums.Role;
 import com.mouflon.exception.CustomRuntimeException;
 import com.mouflon.repository.TeacherRepository;
+import com.mouflon.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,7 +23,11 @@ public class TeacherService {
 
     private final TeacherRepository teacherRepository;
 
-    private final PasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
+
+    private final TeacherMapper teacherMapper;
+
+    private final UserMapper userMapper;
 
     private final ModelMapper modelMapper;
 
@@ -30,15 +37,9 @@ public class TeacherService {
                     "This email is already have in!"
             );
         }
-        var teacher = Teacher.builder()
-                .firstname(teacherRequest.getFirstname())
-                .lastname(teacherRequest.getLastname())
-                .email(teacherRequest.getEmail())
-                .password(bCryptPasswordEncoder.encode(teacherRequest.getPassword()))
-                .role(Role.TEACHER)
-                .build();
-        teacherRepository.save(teacher);
-        return modelMapper.map(teacher, TeacherResponse.class);
+        userRepository.save(userMapper.toUser(teacherRequest));
+        Teacher savedTeacher = teacherRepository.save(teacherMapper.toTeacher(teacherRequest));
+        return modelMapper.map(savedTeacher, TeacherResponse.class);
     }
 
     public TeacherResponse findTeacherById(Long id) {

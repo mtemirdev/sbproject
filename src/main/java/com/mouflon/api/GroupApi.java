@@ -4,6 +4,7 @@ import com.mouflon.dto.request.GroupRequest;
 import com.mouflon.dto.response.GroupResponse;
 import com.mouflon.service.GroupService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/groups")
+@PreAuthorize("hasAnyAuthority('ADMIN', 'TEACHER')")
 public class GroupApi {
 
     private final GroupService groupService;

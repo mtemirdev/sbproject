@@ -3,9 +3,8 @@ package com.mouflon.api.auth;
 import com.mouflon.dto.auth.AuthRequest;
 import com.mouflon.dto.auth.AuthResponse;
 import com.mouflon.dto.request.StudentRequest;
+import com.mouflon.dto.request.TeacherRequest;
 import com.mouflon.dto.request.UserRequest;
-import com.mouflon.service.StudentService;
-import com.mouflon.service.TeacherService;
 import com.mouflon.service.UserService;
 import com.mouflon.service.auth.AuthService;
 
@@ -30,8 +29,22 @@ public class AuthApi {
     @PostMapping("/register")
     @PermitAll
     public ResponseEntity<String> register(@RequestBody UserRequest userRequest) {
-        userService.register(userRequest);
-        return ResponseEntity.ok().body("User with name: " + userRequest.getFirstname() + " successfully saved!");
+        userService.registerUser(userRequest);
+        return ResponseEntity.ok().body("Admin with name: " + userRequest.getFirstname() + " successfully saved!");
+    }
+
+    @PostMapping("/register-student")
+    @PermitAll
+    public ResponseEntity<String> registerStudent(@RequestBody StudentRequest studentRequest) {
+        userService.registerStudent(studentRequest);
+        return ResponseEntity.ok().body("Student with name: " + studentRequest.getFirstname() + " successfully saved!");
+    }
+
+    @PostMapping("/register-teacher")
+    @PermitAll
+    public ResponseEntity<String> registerTeacher(@RequestBody TeacherRequest teacherRequest) {
+        userService.registerTeacher(teacherRequest);
+        return ResponseEntity.ok().body("Teacher with name: " + teacherRequest.getFirstname() + " successfully saved!");
     }
 
     @PostMapping("/login")
@@ -40,13 +53,13 @@ public class AuthApi {
         return authService.authenticate(authRequest);
     }
 
-    @GetMapping("/getUser")
-    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN', 'STUDENT', 'TEACHER')")
+    @GetMapping("/get-user")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'STUDENT', 'TEACHER')")
     public String getString() {
         return "I'm User";
     }
 
-    @GetMapping("/getAdmin")
+    @GetMapping("/get-admin")
     @PreAuthorize("hasAnyAuthority('ADMIN')")
     public String getAdmin() {
         return "I'm Admin";

@@ -4,6 +4,7 @@ import com.mouflon.dto.request.CourseRequest;
 import com.mouflon.dto.response.CourseResponse;
 import com.mouflon.service.CourseService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/courses")
+@PreAuthorize("hasAnyAuthority('ADMIN')")
 public class CourseApi {
 
     private final CourseService courseService;

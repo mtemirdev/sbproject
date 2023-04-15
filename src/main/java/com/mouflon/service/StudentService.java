@@ -2,13 +2,14 @@ package com.mouflon.service;
 
 import com.mouflon.dto.request.StudentRequest;
 import com.mouflon.dto.response.StudentResponse;
+import com.mouflon.mapper.StudentMapper;
+import com.mouflon.mapper.UserMapper;
 import com.mouflon.model.Student;
-import com.mouflon.model.enums.Role;
 import com.mouflon.exception.CustomRuntimeException;
 import com.mouflon.repository.StudentRepository;
+import com.mouflon.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +21,11 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-    private final PasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
+
+    private final StudentMapper studentMapper;
+
+    private final UserMapper userMapper;
 
     private final ModelMapper modelMapper;
 
@@ -30,16 +35,9 @@ public class StudentService {
                     "This email is already have in!"
             );
         }
-        var student = Student.builder()
-                .firstname(studentRequest.getFirstname())
-                .lastname(studentRequest.getLastname())
-                .studyFormat(studentRequest.getStudyFormat())
-                .email(studentRequest.getEmail())
-                .password(bCryptPasswordEncoder.encode(studentRequest.getPassword()))
-                .role(Role.STUDENT)
-                .build();
-        studentRepository.save(student);
-        return modelMapper.map(student, StudentResponse.class);
+        userRepository.save(userMapper.toUser(studentRequest));
+        Student savedStudent = studentRepository.save(studentMapper.toStudent(studentRequest));
+        return modelMapper.map(savedStudent, StudentResponse.class);
     }
 
     public StudentResponse findStudentById(Long id) {

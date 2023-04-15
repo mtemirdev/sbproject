@@ -1,12 +1,8 @@
 package com.mouflon.model;
 
-
 import com.mouflon.model.enums.Role;
 import com.mouflon.model.enums.StudyFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 

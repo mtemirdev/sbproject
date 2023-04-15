@@ -4,6 +4,7 @@ import com.mouflon.dto.request.CompanyRequest;
 import com.mouflon.dto.response.CompanyResponse;
 import com.mouflon.service.CompanyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/company")
+@PreAuthorize("hasAnyAuthority('ADMIN')")
 public class CompanyApi {
 
     private final CompanyService companyService;

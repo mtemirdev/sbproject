@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @SpringBootApplication
 @RestController
 @RequiredArgsConstructor
@@ -32,15 +34,11 @@ public class FinalProjectOnSpringBootApplication {
         user1.setEmail("marlen@gmail.com");
         user1.setRole(Role.ADMIN);
         user1.setPassword(pass.encode("marlen"));
-
-        UserEntity user2 = new UserEntity();
-        user2.setFirstname("Dastan");
-        user2.setLastname("Abdullaev");
-        user2.setEmail("dosya@gmail.com");
-        user2.setRole(Role.USER);
-        user2.setPassword(pass.encode("dosya"));
-
         userRepository.save(user1);
-        userRepository.save(user2);
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("I'm tired...");
     }
 }

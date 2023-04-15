@@ -1,5 +1,6 @@
 package com.mouflon.dto.request;
 
+import com.mouflon.model.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,8 @@ public class UserRequest {
     private String lastname;
 
     private String email;
+
+    private Role role;
 
     private String password;
 }
