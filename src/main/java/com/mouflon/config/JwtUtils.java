@@ -1,6 +1,6 @@
 package com.mouflon.config;
 
-import com.mouflon.model.User;
+import com.mouflon.entity.UserEntity;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.AllArgsConstructor;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+
 @Component
 @AllArgsConstructor
 public class JwtUtils {
@@ -16,7 +17,7 @@ public class JwtUtils {
     private final JwtConfig jwtConfig;
 
     public String generateToken(Authentication authentication) {
-        User authInfo = (User) authentication.getPrincipal();
+        UserEntity authInfo = (UserEntity) authentication.getPrincipal();
 
         return Jwts.builder()
                 .setSubject(authInfo.getEmail())

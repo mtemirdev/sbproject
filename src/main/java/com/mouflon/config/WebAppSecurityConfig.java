@@ -1,5 +1,6 @@
 package com.mouflon.config;
 
+
 import com.mouflon.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +29,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserRepository authInfoRepository;
+
     private final JwtConfig jwtConfig;
+
     private final JwtUtils jwtUtils;
 
     @Override

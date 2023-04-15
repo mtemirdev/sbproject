@@ -1,6 +1,6 @@
 package com.mouflon.repository;
 
-import com.mouflon.model.Company;
+import com.mouflon.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

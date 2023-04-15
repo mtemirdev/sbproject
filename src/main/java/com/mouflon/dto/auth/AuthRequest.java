@@ -1,12 +1,11 @@
 package com.mouflon.dto.auth;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class AuthRequest {
 
     private String email;
+
     private String password;
 }

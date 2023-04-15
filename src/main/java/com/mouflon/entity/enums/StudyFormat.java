@@ -1,5 +1,6 @@
-package com.mouflon.model.enums;
+package com.mouflon.entity.enums;
 
 public enum StudyFormat {
+
     ONLINE, OFFLINE
 }

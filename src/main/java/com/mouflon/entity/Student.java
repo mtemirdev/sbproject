@@ -1,7 +1,10 @@
-package com.mouflon.model;
+package com.mouflon.entity;
 
 
-import com.mouflon.model.enums.StudyFormat;
+import com.mouflon.entity.enums.Role;
+import com.mouflon.entity.enums.StudyFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,34 +13,50 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "students")
-@NoArgsConstructor
 public class Student {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "student_id")
-    private int id;
+    private Long id;
+
     @Column(name = "first_name")
-    private String firstName;
+    private String firstname;
+
     @Column(name = "last_name")
-    private String lastName;
+    private String lastname;
+
     private String email;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @Enumerated(EnumType.STRING)
     private StudyFormat studyFormat;
+
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Group group;
 
-    public Student(String firstName,
-                   String lastName,
+    public Student(String firstname,
+                   String lastname,
                    String email,
+                   String password,
+                   Role role,
                    StudyFormat studyFormat,
                    Group group) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
+        this.password = password;
+        this.role = role;
         this.studyFormat = studyFormat;
         this.group = group;
     }

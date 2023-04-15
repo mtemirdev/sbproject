@@ -24,14 +24,14 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .components(new Components()
                         .addSecuritySchemes("Bearer Token", apiKeySecurityScheme()))
-                .info(new Info().title("Welcome to my project").description("Written by Marlen Temirbaev"))
+                .info(new Info().title("Welcome to my project!").description("Written by Marlen Temirbaev."))
                 .security(List.of(new SecurityRequirement().addList("Bearer Token")));
     }
 
     private SecurityScheme apiKeySecurityScheme() {
         return new SecurityScheme()
                 .name("Authorization")
-                .description("put your token here!")
+                .description("Put your token here!")
                 .in(SecurityScheme.In.HEADER)
                 .type(SecurityScheme.Type.HTTP)
                 .scheme("Bearer");

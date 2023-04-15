@@ -1,6 +1,6 @@
 package com.mouflon.repository;
 
-import com.mouflon.model.Course;
+import com.mouflon.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

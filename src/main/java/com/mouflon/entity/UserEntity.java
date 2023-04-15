@@ -1,8 +1,10 @@
-package com.mouflon.model;
+package com.mouflon.entity;
 
-import com.mouflon.model.enums.Role;
-import lombok.Getter;
-import lombok.Setter;
+import com.mouflon.entity.enums.Role;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,18 +13,26 @@ import java.util.Collection;
 import java.util.Collections;
 
 
-@Getter
-@Setter
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "_users")
-public class User implements UserDetails {
+public class UserEntity implements UserDetails {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String fullName;
+
+    private String firstname;
+
+    private String lastname;
+
     private String email;
+
     private String password;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -33,7 +43,7 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override

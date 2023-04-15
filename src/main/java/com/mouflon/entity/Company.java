@@ -1,6 +1,7 @@
-package com.mouflon.model;
+package com.mouflon.entity;
 
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,21 +11,33 @@ import java.util.List;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
-@Entity
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Company {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "company_id")
-    private int id;
+    private Long id;
+
     @Column(name = "company_name")
     private String companyName;
+
     @Column(name = "located_country")
     private String locatedCountry;
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+    @OneToMany(
+            mappedBy = "company",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
     private List<Course> courses;
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+    @OneToMany(
+            mappedBy = "company",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
     private List<Group> groups;
 
     public Company(String companyName,

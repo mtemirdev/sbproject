@@ -1,4 +1,4 @@
-package com.mouflon.service;
+package com.mouflon.service.auth;
 
 
 import com.mouflon.config.JwtUtils;
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final AuthenticationManager authenticationManager;
+
     private final JwtUtils jwtUtils;
 
     public AuthResponse authenticate(AuthRequest authRequest) {
