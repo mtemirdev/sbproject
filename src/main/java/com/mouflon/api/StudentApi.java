@@ -17,7 +17,7 @@ public class StudentApi {
 
     @PostMapping("/save_student")
     public String saveStudent(@RequestBody StudentRequest studentRequest) {
-        studentService.saveStudent(studentRequest);
+        studentService.registerStudent(studentRequest);
         return "Student was successfully saved!";
     }
 

@@ -1,4 +1,4 @@
-package com.mouflon.entity.enums;
+package com.mouflon.model.enums;
 
 public enum StudyFormat {
 

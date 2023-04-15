@@ -2,7 +2,7 @@ package com.mouflon.service;
 
 import com.mouflon.dto.request.GroupRequest;
 import com.mouflon.dto.response.GroupResponse;
-import com.mouflon.entity.Group;
+import com.mouflon.model.Group;
 import com.mouflon.exception.CustomRuntimeException;
 import com.mouflon.repository.GroupRepository;
 import lombok.RequiredArgsConstructor;

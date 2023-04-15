@@ -2,7 +2,7 @@ package com.mouflon.service;
 
 import com.mouflon.dto.request.CompanyRequest;
 import com.mouflon.dto.response.CompanyResponse;
-import com.mouflon.entity.Company;
+import com.mouflon.model.Company;
 import com.mouflon.exception.CustomRuntimeException;
 import com.mouflon.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;

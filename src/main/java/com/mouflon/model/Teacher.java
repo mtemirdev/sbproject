@@ -1,6 +1,6 @@
-package com.mouflon.entity;
+package com.mouflon.model;
 
-import com.mouflon.entity.enums.Role;
+import com.mouflon.model.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.mouflon.dto.response;
 
-import com.mouflon.entity.enums.StudyFormat;
+import com.mouflon.model.enums.StudyFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

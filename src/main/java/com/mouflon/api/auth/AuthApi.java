@@ -2,7 +2,10 @@ package com.mouflon.api.auth;
 
 import com.mouflon.dto.auth.AuthRequest;
 import com.mouflon.dto.auth.AuthResponse;
+import com.mouflon.dto.request.StudentRequest;
 import com.mouflon.dto.request.UserRequest;
+import com.mouflon.service.StudentService;
+import com.mouflon.service.TeacherService;
 import com.mouflon.service.UserService;
 import com.mouflon.service.auth.AuthService;
 
@@ -21,6 +24,10 @@ import javax.annotation.security.PermitAll;
 public class AuthApi {
 
     private final UserService userService;
+
+    private final StudentService studentService;
+
+    private final TeacherService teacherService;
 
     private final AuthService authService;
 

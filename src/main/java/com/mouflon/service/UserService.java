@@ -4,8 +4,8 @@ import com.mouflon.dto.request.UserRequest;
 
 
 import com.mouflon.dto.response.UserResponse;
-import com.mouflon.entity.UserEntity;
-import com.mouflon.entity.enums.Role;
+import com.mouflon.model.UserEntity;
+import com.mouflon.model.enums.Role;
 import com.mouflon.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

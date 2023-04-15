@@ -2,7 +2,7 @@ package com.mouflon.service;
 
 import com.mouflon.dto.request.CourseRequest;
 import com.mouflon.dto.response.CourseResponse;
-import com.mouflon.entity.Course;
+import com.mouflon.model.Course;
 import com.mouflon.exception.CustomRuntimeException;
 import com.mouflon.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;

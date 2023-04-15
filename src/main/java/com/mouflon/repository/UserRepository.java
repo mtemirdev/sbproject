@@ -1,6 +1,6 @@
 package com.mouflon.repository;
 
-import com.mouflon.entity.UserEntity;
+import com.mouflon.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

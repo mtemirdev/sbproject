@@ -2,8 +2,8 @@ package com.mouflon.service;
 
 import com.mouflon.dto.request.StudentRequest;
 import com.mouflon.dto.response.StudentResponse;
-import com.mouflon.entity.Student;
-import com.mouflon.entity.enums.Role;
+import com.mouflon.model.Student;
+import com.mouflon.model.enums.Role;
 import com.mouflon.exception.CustomRuntimeException;
 import com.mouflon.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class StudentService {
 
     private final ModelMapper modelMapper;
 
-    public StudentResponse saveStudent(StudentRequest studentRequest) {
+    public StudentResponse registerStudent(StudentRequest studentRequest) {
         if (studentRepository.existsByEmail(studentRequest.getEmail())) {
             throw new RuntimeException(
                     "This email is already have in!"

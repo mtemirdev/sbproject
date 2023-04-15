@@ -17,7 +17,7 @@ public class TeacherApi {
 
     @PostMapping("/save_teacher")
     public String saveTeacher(@RequestBody TeacherRequest teacherRequest) {
-        teacherService.saveTeacher(teacherRequest);
+        teacherService.registerTeacher(teacherRequest);
         return "Teacher was successfully saved!";
     }
 

@@ -1,9 +1,8 @@
 package com.mouflon;
 
-import com.mouflon.entity.*;
-import com.mouflon.entity.enums.Role;
+import com.mouflon.model.*;
+import com.mouflon.model.enums.Role;
 import com.mouflon.repository.UserRepository;
-import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.mouflon.entity;
+package com.mouflon.model;
 
 
 import lombok.AllArgsConstructor;

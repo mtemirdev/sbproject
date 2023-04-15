@@ -1,6 +1,6 @@
 package com.mouflon.config;
 
-import com.mouflon.entity.UserEntity;
+import com.mouflon.model.UserEntity;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.AllArgsConstructor;
