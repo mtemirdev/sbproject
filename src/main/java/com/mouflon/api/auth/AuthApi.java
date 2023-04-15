@@ -25,10 +25,6 @@ public class AuthApi {
 
     private final UserService userService;
 
-    private final StudentService studentService;
-
-    private final TeacherService teacherService;
-
     private final AuthService authService;
 
     @PostMapping("/register")
