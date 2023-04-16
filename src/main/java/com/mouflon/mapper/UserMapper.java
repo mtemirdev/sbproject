@@ -3,8 +3,10 @@ package com.mouflon.mapper;
 import com.mouflon.dto.request.StudentRequest;
 import com.mouflon.dto.request.TeacherRequest;
 import com.mouflon.dto.request.UserRequest;
+import com.mouflon.model.Student;
 import com.mouflon.model.UserEntity;
 import com.mouflon.model.enums.Role;
+import com.mouflon.model.enums.StudyFormat;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -21,7 +23,6 @@ public class UserMapper {
                 .lastname(userRequest.getLastname())
                 .email(userRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(userRequest.getPassword()))
-                .role(userRequest.getRole())
                 .build();
     }
 

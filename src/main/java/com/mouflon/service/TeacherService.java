@@ -5,13 +5,11 @@ import com.mouflon.dto.response.TeacherResponse;
 import com.mouflon.mapper.TeacherMapper;
 import com.mouflon.mapper.UserMapper;
 import com.mouflon.model.Teacher;
-import com.mouflon.model.enums.Role;
 import com.mouflon.exception.CustomRuntimeException;
 import com.mouflon.repository.TeacherRepository;
 import com.mouflon.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -5,6 +5,7 @@ import com.mouflon.dto.auth.AuthResponse;
 import com.mouflon.dto.request.StudentRequest;
 import com.mouflon.dto.request.TeacherRequest;
 import com.mouflon.dto.request.UserRequest;
+import com.mouflon.model.enums.Role;
 import com.mouflon.service.UserService;
 import com.mouflon.service.auth.AuthService;
 
@@ -22,30 +23,7 @@ import javax.annotation.security.PermitAll;
 @RequiredArgsConstructor
 public class AuthApi {
 
-    private final UserService userService;
-
     private final AuthService authService;
-
-    @PostMapping("/register")
-    @PermitAll
-    public ResponseEntity<String> register(@RequestBody UserRequest userRequest) {
-        userService.registerUser(userRequest);
-        return ResponseEntity.ok().body("Admin with name: " + userRequest.getFirstname() + " successfully saved!");
-    }
-
-    @PostMapping("/register-student")
-    @PermitAll
-    public ResponseEntity<String> registerStudent(@RequestBody StudentRequest studentRequest) {
-        userService.registerStudent(studentRequest);
-        return ResponseEntity.ok().body("Student with name: " + studentRequest.getFirstname() + " successfully saved!");
-    }
-
-    @PostMapping("/register-teacher")
-    @PermitAll
-    public ResponseEntity<String> registerTeacher(@RequestBody TeacherRequest teacherRequest) {
-        userService.registerTeacher(teacherRequest);
-        return ResponseEntity.ok().body("Teacher with name: " + teacherRequest.getFirstname() + " successfully saved!");
-    }
 
     @PostMapping("/login")
     @PermitAll
