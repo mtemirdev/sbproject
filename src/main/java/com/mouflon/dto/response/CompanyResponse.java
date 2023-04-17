@@ -5,9 +5,7 @@ import lombok.Data;
 @Data
 public class CompanyResponse {
 
-    private Long id;
-
+    private Long companyId;
     private String companyName;
-
     private String locatedCountry;
 }

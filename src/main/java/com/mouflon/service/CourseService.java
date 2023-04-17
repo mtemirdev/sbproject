@@ -8,7 +8,6 @@ import com.mouflon.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +16,6 @@ import java.util.stream.Collectors;
 public class CourseService {
 
     private final CourseRepository courseRepository;
-
     private final ModelMapper modelMapper;
 
     public CourseResponse createCourse(CourseRequest courseRequest) {
@@ -47,7 +45,7 @@ public class CourseService {
         courseRepository.deleteById(id);
     }
 
-    public CourseResponse updateCourse(Long id, CourseRequest courseRequest) {
+    public CourseResponse updateCourseById(Long id, CourseRequest courseRequest) {
         Course course = courseRepository.findById(id)
                 .orElseThrow(() -> new CustomRuntimeException("Course not found with id " + id));
         modelMapper.map(courseRequest, course);

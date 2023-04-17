@@ -15,8 +15,8 @@ public class StudentMapper {
 
     public Student toStudent(StudentRequest studentRequest) {
         return Student.builder()
-                .firstname(studentRequest.getFirstname())
-                .lastname(studentRequest.getLastname())
+                .firstName(studentRequest.getFirstName())
+                .lastName(studentRequest.getLastName())
                 .studyFormat(studentRequest.getStudyFormat())
                 .email(studentRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(studentRequest.getPassword()))

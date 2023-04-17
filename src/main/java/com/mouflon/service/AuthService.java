@@ -1,5 +1,4 @@
-package com.mouflon.service.auth;
-
+package com.mouflon.service;
 
 import com.mouflon.config.JwtUtils;
 import com.mouflon.dto.auth.AuthRequest;
@@ -9,8 +8,10 @@ import com.mouflon.model.enums.Role;
 import com.mouflon.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,19 +21,21 @@ import java.util.Optional;
 public class AuthService {
 
     private final AuthenticationManager authenticationManager;
-
     private final JwtUtils jwtUtils;
-
     private final UserRepository userRepository;
 
     public AuthResponse authenticate(AuthRequest authRequest) {
+
         Authentication authentication;
         authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 authRequest.getEmail(),
                 authRequest.getPassword()
         ));
-        Optional<UserEntity> userEmail = userRepository.findByEmail(authRequest.getEmail());
-        Role role = userEmail.get().getRole();
+        Optional<UserEntity> user = userRepository.findByEmail(authRequest.getEmail());
+        Role role = user.get().getRole();
+        if (!BCrypt.checkpw(authRequest.getPassword(), user.get().getPassword())) {
+            throw new BadCredentialsException("Invalid Password");
+        }
         String generatedToken = jwtUtils.generateToken(authentication);
         System.out.println(generatedToken);
         return new AuthResponse(authRequest.getEmail(), role, generatedToken);

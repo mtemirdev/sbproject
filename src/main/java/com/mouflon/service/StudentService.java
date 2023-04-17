@@ -11,7 +11,6 @@ import com.mouflon.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,13 +19,9 @@ import java.util.stream.Collectors;
 public class StudentService {
 
     private final StudentRepository studentRepository;
-
     private final UserRepository userRepository;
-
     private final StudentMapper studentMapper;
-
     private final UserMapper userMapper;
-
     private final ModelMapper modelMapper;
 
     public StudentResponse registerStudent(StudentRequest studentRequest) {

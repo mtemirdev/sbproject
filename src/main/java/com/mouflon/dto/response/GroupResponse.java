@@ -5,11 +5,8 @@ import lombok.Data;
 @Data
 public class GroupResponse {
 
-    private Long id;
-
+    private Long groupId;
     private String groupName;
-
     private String dateOfStart;
-
     private String dateOfFinish;
 }

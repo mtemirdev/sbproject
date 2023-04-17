@@ -1,16 +1,9 @@
-package com.mouflon.api.auth;
+package com.mouflon.api;
 
 import com.mouflon.dto.auth.AuthRequest;
 import com.mouflon.dto.auth.AuthResponse;
-import com.mouflon.dto.request.StudentRequest;
-import com.mouflon.dto.request.TeacherRequest;
-import com.mouflon.dto.request.UserRequest;
-import com.mouflon.model.enums.Role;
-import com.mouflon.service.UserService;
-import com.mouflon.service.auth.AuthService;
-
+import com.mouflon.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

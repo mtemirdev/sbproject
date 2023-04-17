@@ -17,8 +17,8 @@ public class UserMapper {
 
     public UserEntity toUser(UserRequest userRequest) {
         return UserEntity.builder()
-                .firstname((userRequest.getFirstname()))
-                .lastname(userRequest.getLastname())
+                .firstName((userRequest.getFirstName()))
+                .lastName(userRequest.getLastName())
                 .email(userRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(userRequest.getPassword()))
                 .build();
@@ -26,8 +26,8 @@ public class UserMapper {
 
     public UserEntity toUser(StudentRequest studentRequest) {
         return UserEntity.builder()
-                .firstname((studentRequest.getFirstname()))
-                .lastname(studentRequest.getLastname())
+                .firstName((studentRequest.getFirstName()))
+                .lastName(studentRequest.getLastName())
                 .email(studentRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(studentRequest.getPassword()))
                 .role(Role.STUDENT)
@@ -36,8 +36,8 @@ public class UserMapper {
 
     public UserEntity toUser(TeacherRequest teacherRequest) {
         return UserEntity.builder()
-                .firstname((teacherRequest.getFirstname()))
-                .lastname(teacherRequest.getLastname())
+                .firstName((teacherRequest.getFirstName()))
+                .lastName(teacherRequest.getLastName())
                 .email(teacherRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(teacherRequest.getPassword()))
                 .role(Role.TEACHER)

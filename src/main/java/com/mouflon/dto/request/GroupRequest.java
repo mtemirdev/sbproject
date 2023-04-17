@@ -6,8 +6,6 @@ import lombok.Data;
 public class GroupRequest {
 
     private String groupName;
-
     private String dateOfStart;
-
     private String dateOfFinish;
 }

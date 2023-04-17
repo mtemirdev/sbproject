@@ -6,7 +6,6 @@ import com.mouflon.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -41,7 +40,7 @@ public class CourseApi {
 
     @PutMapping("/update_course/{id}")
     public String updateById(@PathVariable Long id, @RequestBody CourseRequest courseRequest) {
-        courseService.updateCourse(id, courseRequest);
+        courseService.updateCourseById(id, courseRequest);
         return "Course successfully updated!";
     }
 }

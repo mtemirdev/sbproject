@@ -6,7 +6,6 @@ import com.mouflon.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -41,7 +40,7 @@ public class CompanyApi {
 
     @PutMapping("/update_company/{id}")
     public String updateById(@PathVariable Long id, @RequestBody CompanyRequest companyRequest) {
-        companyService.updateCompany(id, companyRequest);
+        companyService.updateCompanyById(id, companyRequest);
         return "Company successfully updated!";
     }
 }

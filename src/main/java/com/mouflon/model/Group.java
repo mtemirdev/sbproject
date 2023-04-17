@@ -1,14 +1,8 @@
 package com.mouflon.model;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 import javax.persistence.*;
 import java.util.List;
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
@@ -21,28 +15,20 @@ public class Group {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "group_id")
-    private Long id;
-
-    @Column(name = "group_name")
+    private Long groupId;
     private String groupName;
-
     @Column(name = "start")
     private String dateOfStart;
-
     @Column(name = "finish")
     private String dateOfFinish;
-
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
-
     @OneToMany(
             mappedBy = "group",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private List<Student> students;
-
     @ManyToMany
     @JoinTable(
             name = "groups_courses",

@@ -5,9 +5,7 @@ import lombok.Data;
 @Data
 public class CourseResponse {
 
-    private Long id;
-
+    private Long courseId;
     private String courseName;
-
     private String duration;
 }

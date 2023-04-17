@@ -12,13 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class StudentResponse {
 
-    private Long id;
-
-    private String firstname;
-
-    private String lastname;
-
+    private Long studentId;
+    private String firstName;
+    private String lastName;
     private String email;
-
     private StudyFormat studyFormat;
 }

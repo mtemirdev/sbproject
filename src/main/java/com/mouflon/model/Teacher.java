@@ -2,9 +2,7 @@ package com.mouflon.model;
 
 import com.mouflon.model.enums.Role;
 import lombok.*;
-
 import javax.persistence.*;
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
@@ -16,34 +14,25 @@ public class Teacher {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "teacher_id")
-    private Long id;
-
-    @Column(name = "first_name")
-    private String firstname;
-
-    @Column(name = "last_name")
-    private String lastname;
-
+    private Long teacherId;
+    private String firstName;
+    private String lastName;
     private String email;
-
     private String password;
-
     @Enumerated(EnumType.STRING)
     private Role role;
-
     @OneToOne
     @JoinColumn(name = "course_id")
     private Course course;
 
-    public Teacher(String firstname,
-                   String lastname,
+    public Teacher(String firstName,
+                   String lastName,
                    String email,
                    String password,
                    Role role,
                    Course course) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role = role;

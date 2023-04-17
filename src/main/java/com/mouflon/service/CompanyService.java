@@ -8,7 +8,6 @@ import com.mouflon.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +16,6 @@ import java.util.stream.Collectors;
 public class CompanyService {
 
     private final CompanyRepository companyRepository;
-
     private final ModelMapper modelMapper;
 
     public CompanyResponse createCompany(CompanyRequest companyRequest) {
@@ -47,7 +45,7 @@ public class CompanyService {
         companyRepository.deleteById(id);
     }
 
-    public CompanyResponse updateCompany(Long id, CompanyRequest companyRequest) {
+    public CompanyResponse updateCompanyById(Long id, CompanyRequest companyRequest) {
         Company company = companyRepository.findById(id)
                 .orElseThrow(() -> new CustomRuntimeException("Company not found with id " + id));
         modelMapper.map(companyRequest, company);

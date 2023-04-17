@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
+@ControllerAdvice // ResponseStatus
 public class CustomExceptionHandler {
 
     @ExceptionHandler(CommandAcceptanceException.class)

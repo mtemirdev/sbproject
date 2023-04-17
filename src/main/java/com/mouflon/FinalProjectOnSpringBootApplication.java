@@ -8,7 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
@@ -18,7 +17,6 @@ import javax.annotation.PreDestroy;
 public class FinalProjectOnSpringBootApplication {
 
     private final UserRepository userRepository;
-
     private final PasswordEncoder pass;
 
     public static void main(String[] args) {
@@ -29,8 +27,8 @@ public class FinalProjectOnSpringBootApplication {
     public void init() {
 
         UserEntity user1 = new UserEntity();
-        user1.setFirstname("Marlen");
-        user1.setLastname("Temirbaev");
+        user1.setFirstName("Marlen");
+        user1.setLastName("Temirbaev");
         user1.setEmail("marlen@gmail.com");
         user1.setRole(Role.ADMIN);
         user1.setPassword(pass.encode("marlen"));

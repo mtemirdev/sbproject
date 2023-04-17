@@ -15,8 +15,8 @@ public class TeacherMapper {
 
     public Teacher toTeacher(TeacherRequest teacherRequest) {
         return Teacher.builder()
-                .firstname(teacherRequest.getFirstname())
-                .lastname(teacherRequest.getLastname())
+                .firstName(teacherRequest.getFirstName())
+                .lastName(teacherRequest.getLastName())
                 .email(teacherRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(teacherRequest.getPassword()))
                 .role(Role.TEACHER)
