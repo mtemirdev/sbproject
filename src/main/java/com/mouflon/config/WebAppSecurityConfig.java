@@ -1,6 +1,5 @@
 package com.mouflon.config;
 
-
 import com.mouflon.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
