@@ -15,7 +15,7 @@ import javax.annotation.security.PermitAll;
 @RequiredArgsConstructor
 public class AuthApi {
 
-    private final AuthService authService;
+    private final AuthService  authService;
 
     @PostMapping("/login")
     @PermitAll

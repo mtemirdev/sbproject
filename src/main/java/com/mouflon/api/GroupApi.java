@@ -41,6 +41,6 @@ public class GroupApi {
     @PutMapping("/update_group/{id}")
     public String updateById(@PathVariable Long id, @RequestBody GroupRequest groupRequest) {
         groupService.updateGroup(id, groupRequest);
-        return "Company successfully updated!";
+        return "Group successfully updated!";
     }
 }

@@ -25,7 +25,6 @@ public class FinalProjectOnSpringBootApplication {
 
     @PostConstruct
     public void init() {
-
         UserEntity user1 = new UserEntity();
         user1.setFirstName("Marlen");
         user1.setLastName("Temirbaev");

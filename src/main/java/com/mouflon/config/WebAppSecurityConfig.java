@@ -28,9 +28,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebAppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserRepository authInfoRepository;
-
     private final JwtConfig jwtConfig;
-
     private final JwtUtils jwtUtils;
 
     @Override
