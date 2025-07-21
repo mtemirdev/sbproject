@@ -8,11 +8,11 @@
         <version>2.4.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.mouflon</groupId>
-    <artifactId>FinalProjectOnSpringBoot</artifactId>
+    <groupId>com.mtemirdev</groupId>
+    <artifactId>sbproject</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>FinalProjectOnSpringBoot</name>
-    <description>FinalProjectOnSpringBoot</description>
+    <name>sbproject</name>
+    <description>sbproject</description>
     <properties>
         <java.version>17</java.version>
     </properties>
