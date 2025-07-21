@@ -14,13 +14,13 @@ import javax.annotation.PreDestroy;
 @SpringBootApplication
 @RestController
 @RequiredArgsConstructor
-public class sbprojectApplication {
+public class SbprojectApplication {
 
     private final UserRepository userRepository;
     private final PasswordEncoder pass;
 
     public static void main(String[] args) {
-        SpringApplication.run(sbprojectApplication.class, args);
+        SpringApplication.run(SbprojectApplication.class, args);
     }
 
     @PostConstruct
